@@ -1,13 +1,18 @@
-# Magento Enqueue. Quick tour
+# Magento2 EnqueueModule
+
+THe module integrates [Enqueue's Client](https://github.com/php-enqueue/enqueue-dev/blob/master/docs/client/quick_tour.md) with Magento2. You can send and consume messages to different message queues such as RabbitMQ, AMQP, STOMP, Amazon SQS, Kafka, Redis, Google PubSub, Gearman, Beanstalk, Google PubSub and others. Or integrate Magento2 app with other applications or service via [Message Bus](https://github.com/php-enqueue/enqueue-dev/blob/master/docs/client/message_bus.md).
 
 ## Installation
 
-We use [composer](https://getcomposer.org/) and [cotya/magento-composer-installer](https://github.com/Cotya/magento-composer-installer) plugin to install [magento-enqueue](https://github.com/php-enqueue/magento-enqueue) extension.
-
-To install libraries run the commands in the application root directory.
+We recommend using [composer](https://getcomposer.org/) to install [magento2-enqueue](https://github.com/php-enqueue/magento-enqueue) module. To install libraries run the commands in the application root directory.
 
 ```bash
 composer require "enqueue/magento2-enqueue:*@dev" "enqueue/amqp-ext"
+```
+
+Run setup:upgrade so Magento2 picks up the installed module.
+
+```bash
 php bin/magento setup:upgrade 
 ```
 
@@ -16,7 +21,6 @@ php bin/magento setup:upgrade
 At this stage we have configure the Enqueue extension in Magento backend. 
 The config is here: `Stores -> Configuration -> General -> Enqueue Message Queue`.
 Here's the example of Amqp transport that connects to RabbitMQ broker on localhost:
- 
 
 ![Сonfiguration](enqueue_doc.png)
 
