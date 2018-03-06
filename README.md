@@ -4,7 +4,9 @@
 [![Total Downloads](https://poser.pugx.org/enqueue/magento2-enqueue/d/total.png)](https://packagist.org/packages/enqueue/magento2-enqueue)
 [![Latest Stable Version](https://poser.pugx.org/enqueue/magento2-enqueue/version.png)](https://packagist.org/packages/enqueue/magento2-enqueue)
  
-The module integrates [Enqueue Client](https://github.com/php-enqueue/enqueue-dev/blob/master/docs/client/quick_tour.md) with Magento2. You can send and consume messages to different message queues such as RabbitMQ, AMQP, STOMP, Amazon SQS, Kafka, Redis, Google PubSub, Gearman, Beanstalk, Google PubSub and others. Or integrate Magento2 app with other applications or service via [Message Bus](https://github.com/php-enqueue/enqueue-dev/blob/master/docs/client/message_bus.md).
+The module integrates [Enqueue Client](https://github.com/php-enqueue/enqueue-dev/blob/master/docs/client/quick_tour.md) with Magento2. 
+
+You can send and consume messages to different message queues such as RabbitMQ, AMQP, STOMP, Amazon SQS, Kafka, Redis, Google PubSub, Gearman, Beanstalk, Google PubSub and others. Or integrate Magento2 app with other applications or service via [Message Bus](https://github.com/php-enqueue/enqueue-dev/blob/master/docs/client/message_bus.md).
 
 ## Resources
 
