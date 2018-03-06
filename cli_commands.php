@@ -4,5 +4,5 @@
  * See COPYING.txt for license details.
  */
 if (PHP_SAPI == 'cli') {
-    \Magento\Framework\Console\CommandLocator::register(\Enqueue\Enqueue\Console\CommandList::class);
+    \Magento\Framework\Console\CommandLocator::register(\Enqueue\Magento2\Console\CommandList::class);
 }

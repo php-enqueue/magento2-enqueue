@@ -6,6 +6,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="\Magento\Config\Model\Config">
-        <plugin name="config_data_plugin" type="Enqueue\Enqueue\Plugin\Model\Config\ConfigPlugin"/>
+        <plugin name="config_data_plugin" type="Enqueue\Magento2\Plugin\Model\Config\ConfigPlugin"/>
     </type>
 </config>

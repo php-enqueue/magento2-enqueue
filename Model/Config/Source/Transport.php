@@ -1,6 +1,6 @@
 <?php
 
-namespace Enqueue\Enqueue\Model\Config\Source;
+namespace Enqueue\Magento2\Model\Config\Source;
 
 class Transport
 {

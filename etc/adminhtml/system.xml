@@ -11,7 +11,7 @@
                 <label>Transport</label>
                 <field id="default" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Default</label>
-                    <source_model>Enqueue\Enqueue\Model\Config\Source\Transport</source_model>
+                    <source_model>Enqueue\Magento2\Model\Config\Source\Transport</source_model>
                 </field>
             </group>
             <group id="client" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
@@ -198,7 +198,7 @@
                 </field>
                 <field id="vendor" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Vendor</label>
-                    <source_model>Enqueue\Enqueue\Model\Config\Source\Redis\Vendor</source_model>
+                    <source_model>Enqueue\Magento2\Model\Config\Source\Redis\Vendor</source_model>
                 </field>
                 <field id="lazy" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Lazy Connection</label>

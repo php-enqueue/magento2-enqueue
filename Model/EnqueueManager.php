@@ -1,8 +1,9 @@
 <?php
 
-namespace Enqueue\Enqueue\Model;
+namespace Enqueue\Magento2\Model;
 
 use Enqueue\Client\Message;
+use Enqueue\Rpc\Promise;
 use Enqueue\SimpleClient\SimpleClient;
 use Interop\Queue\PsrProcessor;
 
@@ -66,14 +67,25 @@ class EnqueueManager
         }
     }
 
-
     /**
      * @param string               $topic
      * @param string|array|Message $message
      */
-    public function send($topic, $message)
+    public function sendEvent($topic, $message)
     {
-        $this->getProducer()->send($topic, $message);
+        $this->getProducer()->sendEvent($topic, $message);
+    }
+
+    /**
+     * @param string               $command
+     * @param string|array|Message $message
+     * @param bool                 $needReply
+     *
+     * @return Promise|null the promise is returned if needReply argument is true
+     */
+    public function sendCommand($command, $message, $needReply = false)
+    {
+        return $this->getProducer()->sendCommand($command, $message, $needReply);
     }
 
     /**

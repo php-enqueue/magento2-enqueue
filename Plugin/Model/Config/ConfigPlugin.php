@@ -1,6 +1,6 @@
 <?php
 
-namespace Enqueue\Enqueue\Plugin\Model\Config;
+namespace Enqueue\Magento2\Plugin\Model\Config;
 
 use \Enqueue\AmqpExt\AmqpContext;
 use \Enqueue\Stomp\StompContext;

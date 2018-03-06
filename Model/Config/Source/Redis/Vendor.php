@@ -1,6 +1,6 @@
 <?php
 
-namespace Enqueue\Enqueue\Model\Config\Source\Redis;
+namespace Enqueue\Magento2\Model\Config\Source\Redis;
 
 class Vendor
 {

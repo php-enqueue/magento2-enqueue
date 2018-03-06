@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Enqueue\Enqueue\Console;
+namespace Enqueue\Magento2\Console;
 
 use Enqueue\Symfony\Client\ConsumeMessagesCommand;
 use Enqueue\Symfony\Client\Meta\QueuesCommand;
@@ -40,14 +40,14 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
      */
     private $queuesCommandFactory;
     /**
-     * @var \Enqueue\Enqueue\Model\EnqueueManager
+     * @var \Enqueue\Magento2\Model\EnqueueManager
      */
     private $enqueueManager;
 
     /**
      * CommandList constructor.
      *
-     * @param \Enqueue\Enqueue\Model\EnqueueManager $enqueueManager
+     * @param \Enqueue\Magento2\Model\EnqueueManager $enqueueManager
      * @param \Enqueue\Symfony\Client\SetupBrokerCommandFactory $setupBrokerCommandFactory
      * @param \Enqueue\Symfony\Client\Meta\QueuesCommandFactory $queuesCommandFactory
      * @param \Enqueue\Symfony\Client\Meta\TopicsCommandFactory $topicsCommandFactory
@@ -55,7 +55,7 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
      * @param \Enqueue\Symfony\Client\ConsumeMessagesCommandFactory $consumeMessagesCommand
      */
     public function __construct(
-        \Enqueue\Enqueue\Model\EnqueueManager $enqueueManager,
+        \Enqueue\Magento2\Model\EnqueueManager $enqueueManager,
         \Enqueue\Symfony\Client\SetupBrokerCommandFactory $setupBrokerCommandFactory,
         \Enqueue\Symfony\Client\Meta\QueuesCommandFactory $queuesCommandFactory,
         \Enqueue\Symfony\Client\Meta\TopicsCommandFactory $topicsCommandFactory,
