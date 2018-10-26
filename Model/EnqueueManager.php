@@ -141,6 +141,9 @@ class EnqueueManager
             case 'dbal':
                 $config['transport'] = $this->getDbalConfig();
                 break;
+            case 'null':
+                $config['transport'] = $this->getNullConfig();
+                break;
             default:
                 throw new \LogicException(sprintf('Unknown transport: "%s"', $name));
         }
@@ -280,5 +283,13 @@ class EnqueueManager
             'polling_interval' => (int) $this->scopeConfig->getValue('enqueue/dbal/polling_interval'),
             'lazy' => (bool) $this->scopeConfig->getValue('enqueue/dbal/lazy'),
         ]];
+    }
+
+    /**
+     * @return array
+     */
+    private function getNullConfig(): array
+    {
+        return ['null' => []];
     }
 }

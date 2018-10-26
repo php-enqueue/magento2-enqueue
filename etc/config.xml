@@ -4,7 +4,7 @@
     <default>
         <enqueue>
             <transport>
-                <default>rabbitmq_amqp</default>
+                <default>null</default>
             </transport>
             <client>
                 <prefix>enqueue</prefix>
