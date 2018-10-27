@@ -3,6 +3,7 @@
 namespace Enqueue\Magento2\Plugin\Model\Config;
 
 use \Enqueue\AmqpExt\AmqpContext;
+use Enqueue\Null\NullContext;
 use \Enqueue\Stomp\StompContext;
 use \Enqueue\Fs\FsContext;
 use \Enqueue\Sqs\SqsContext;
@@ -55,6 +56,11 @@ class ConfigPlugin
             'name' => 'Doctrine DBAL',
             'package' => 'enqueue/dbal',
             'class' => DbalContext::class,
+        ],
+        'null' => [
+            'name' => 'Null transport',
+            'package' => 'enqueue/null',
+            'class' => NullContext::class
         ]
     ];
 
