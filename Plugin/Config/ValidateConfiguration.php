@@ -1,6 +1,6 @@
 <?php
 
-namespace Enqueue\Magento2\Plugin\Model\Config;
+namespace Enqueue\Magento2\Plugin\Config;
 
 use \Enqueue\AmqpExt\AmqpContext;
 use Enqueue\Null\NullContext;
@@ -11,7 +11,7 @@ use \Enqueue\Redis\RedisContext;
 use \Enqueue\Dbal\DbalContext;
 use \Magento\Framework\Exception\TemporaryState\CouldNotSaveException;
 
-class ConfigPlugin
+class ValidateConfiguration
 {
     /**
      * @var array
@@ -75,21 +75,19 @@ class ConfigPlugin
         if (isset($beforeSaveData['transport']['fields']['default']['value'])) {
             $configValue = $beforeSaveData['transport']['fields']['default']['value'];
 
-            if (false == isset($this->_preDefinedServices[$configValue])) {
+            if (false === isset($this->_preDefinedServices[$configValue])) {
                 throw new \LogicException(sprintf('Unknown transport: "%s"', $configValue));
             }
 
-            if (false == $this->isClassExists($this->_preDefinedServices[$configValue]['class'])) {
+            if (false === $this->isClassExists($this->_preDefinedServices[$configValue]['class'])) {
                 throw new CouldNotSaveException(
                     __(
-                        vsprintf(
-                        '%s transport requires package "%s". Please install it via composer. #> php composer.php require %s',
+                        '%name transport requires package "%package".'
+                        . ' Please install it via composer. #> php composer.php require %package',
                         [
-                            $this->_preDefinedServices[$configValue]['name'],
-                            $this->_preDefinedServices[$configValue]['package'],
-                            $this->_preDefinedServices[$configValue]['package']
+                            'name' => $this->_preDefinedServices[$configValue]['name'],
+                            'package' => $this->_preDefinedServices[$configValue]['package'],
                         ]
-                    )
                     )
                 );
             }
