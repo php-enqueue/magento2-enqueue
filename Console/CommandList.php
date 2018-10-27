@@ -3,13 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Enqueue\Magento2\Console;
 
-use Enqueue\Symfony\Client\ConsumeMessagesCommand;
-use Enqueue\Symfony\Client\Meta\QueuesCommand;
-use Enqueue\Symfony\Client\Meta\TopicsCommand;
-use Enqueue\Symfony\Client\ProduceMessageCommand;
-use Enqueue\Symfony\Client\SetupBrokerCommand;
 /**
  * Provides list of commands to be available for uninstalled application
  */
@@ -71,22 +67,6 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
     }
 
     /**
-     * Gets list of command classes
-     *
-     * @return string[]
-     */
-    private function getCommandsClasses()
-    {
-        return [
-            SetupBrokerCommand::class,
-            ProduceMessageCommand::class,
-            TopicsCommand::class,
-            ConsumeMessagesCommand::class,
-            QueuesCommand::class,
-        ];
-    }
-
-    /**
      * @inheritdoc
      */
     public function getCommands()
@@ -96,24 +76,18 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
         $this->enqueueManager->bindProcessors();
         $client = $this->enqueueManager->getClient();
 
-        foreach ($this->getCommandsClasses() as $class) {
-            if (class_exists($class)) {
-                $commands[] = $this->setupBrokerCommandFactory->create(['driver' => $client->getDriver()]);
-                $commands[] = $this->produceMessageCommandFactory->create(['producer' => $client->getProducer()]);
-                $commands[] = $this->queuesCommandFactory->create(['queueRegistry' => $client->getQueueMetaRegistry()]);
-                $commands[] = $this->topicsCommandFactory->create(['topicRegistry' => $client->getTopicMetaRegistry()]);
-                $commands[] = $this->consumeMessagesCommandFactory->create(
-                    [
-                        'consumer' => $client->getQueueConsumer(),
-                        'processor' => $client->getDelegateProcessor(),
-                        'queueMetaRegistry' => $client->getQueueMetaRegistry(),
-                        'driver' => $client->getDriver()
-                    ]
-                );
-            } else {
-                throw new \Exception('Class ' . $class . ' does not exist');
-            }
-        }
+        $commands[] = $this->setupBrokerCommandFactory->create(['driver' => $client->getDriver()]);
+        $commands[] = $this->produceMessageCommandFactory->create(['producer' => $client->getProducer()]);
+        $commands[] = $this->queuesCommandFactory->create(['queueRegistry' => $client->getQueueMetaRegistry()]);
+        $commands[] = $this->topicsCommandFactory->create(['topicRegistry' => $client->getTopicMetaRegistry()]);
+        $commands[] = $this->consumeMessagesCommandFactory->create(
+            [
+                'consumer' => $client->getQueueConsumer(),
+                'processor' => $client->getDelegateProcessor(),
+                'queueMetaRegistry' => $client->getQueueMetaRegistry(),
+                'driver' => $client->getDriver()
+            ]
+        );
 
         return $commands;
     }
