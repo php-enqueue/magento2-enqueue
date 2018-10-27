@@ -20,6 +20,7 @@ class Transport
             ['value' => 'sqs', 'label' => __('Amazon AWS SQS')],
             ['value' => 'redis', 'label' => __('Redis')],
             ['value' => 'dbal', 'label' => __('Doctrine DBAL')],
+            ['value' => 'null', 'label' => __('Null transport')],
         ];
     }
 }
